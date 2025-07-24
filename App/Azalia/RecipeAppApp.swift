@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-@main
+@main //точка входа в приложении
 struct RecipeAppApp: App {
     var body: some Scene {
         WindowGroup {
+            //заглушка, потом меняем на TabBarView()
             NavigationStack {
                 RecipeDetailView(recipe: RecipeData.recipes.first!)
             }

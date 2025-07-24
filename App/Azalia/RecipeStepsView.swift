@@ -6,13 +6,13 @@
 //
 import SwiftUI
 
-struct RecipeStepsView: View {
+struct RecipeStepsView: View { //пошаговый рецепт
     let recipe: Recipe
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
+            HStack { //кнопка назад
                 Button(action: {
                     dismiss()
                 }) {
@@ -23,13 +23,13 @@ struct RecipeStepsView: View {
                 Spacer()
             }
             .padding([.leading, .top])
-
-            Text("Рецепт: \(recipe.name)")
+ 
+            Text("Рецепт: \(recipe.name)") //заголовок рецепта
                 .font(.title2)
                 .bold()
                 .padding()
 
-            ForEach(recipe.steps.indices, id: \.self) { idx in
+            ForEach(recipe.steps.indices, id: \.self) { idx in //список шагов приготовления
                 Text("\(idx + 1). \(recipe.steps[idx])")
                     .padding(.horizontal)
                     .padding(.vertical, 4)

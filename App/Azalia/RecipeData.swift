@@ -5,7 +5,7 @@
 //  Created by Азалия Хайруллина on 22.07.2025.
 //
 
-struct RecipeData {
+struct RecipeData { //список всех рецептов
     static let recipes = [
         Recipe(
             name: "Пельмени",
@@ -61,7 +61,7 @@ struct RecipeData {
                 Ingredient(name: "Зелень петрушки", amountPerServing: 1, unit: "шт"),
                 Ingredient(name: "Вода", amountPerServing: 2000, unit: "мл"),
                 Ingredient(name: "Масло растительное", amountPerServing: 30, unit: "г"),
-                Ingredient(name: "Соль", amountPerServing: 15, unit: "г"),
+                Ingredient(name: "Соль", amountPerServing: 15, unit: "г")
             ],
             steps: [
                 "Выкладываем мясо в кастрюлю, заливаем холодной водой. Доводим до кипения, снимаем пену и варим мясо 1,5 часа на маленьком огне, под крышкой.",

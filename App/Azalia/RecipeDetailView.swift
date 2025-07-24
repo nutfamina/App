@@ -9,16 +9,16 @@
 import SwiftUI
 
 struct RecipeDetailView: View {
-    let recipe: Recipe
+    let recipe: Recipe //отображаем 1 рецепт
     @State private var servings: Int = 1
     @State private var isFavorite: Bool = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
 
-            HStack {
+            HStack { //кнопка избранное
                 Spacer()
-                Button(action: { isFavorite.toggle() }) {
+                Button(action: { isFavorite.toggle() }) { //при нажатии меняем цвет кнопки
                     Image(systemName: isFavorite ? "heart.fill" : "heart")
                         .font(.title2)
                         .foregroundColor(.red)
@@ -26,18 +26,18 @@ struct RecipeDetailView: View {
             }
             .padding([.horizontal, .top])
 
-            Image(recipe.imageName)
+            Image(recipe.imageName) //изображение блюда
                 .resizable()
                 .scaledToFit()
                 .cornerRadius(16)
                 .padding(.horizontal)
 
-            Text("\(recipe.calories) ккал • \(recipe.time) мин")
+            Text("\(recipe.calories) ккал • \(recipe.time) мин") //калории и время
                 .font(.subheadline)
                 .italic()
                 .padding(.horizontal)
 
-            HStack(spacing: 16) {
+            HStack(spacing: 16) { //порции
                 Text("Порции: \(servings)")
                     .font(.headline)
                 Spacer()
@@ -60,14 +60,14 @@ struct RecipeDetailView: View {
                     }
                     .background(Color.white)
                 }
-                .overlay(
+                .overlay( //добавила рамку вокруг кнопок
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color.pink, lineWidth: 1)
                 )
             }
             .padding(.horizontal)
 
-            Text("Ингредиенты")
+            Text("Ингредиенты") //ингридиенты
                 .font(.headline)
                 .padding(.horizontal)
                 .padding(.top, 6)
@@ -99,7 +99,7 @@ struct RecipeDetailView: View {
 
             Spacer()
 
-            NavigationLink(destination: RecipeStepsView(recipe: recipe)) {
+            NavigationLink(destination: RecipeStepsView(recipe: recipe)) { //кнопка показать рецептдля перехода на следующий экран
                 Text("Показать рецепт")
                     .frame(maxWidth: .infinity)
                     .padding()
