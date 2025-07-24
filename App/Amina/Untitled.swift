@@ -2,6 +2,6 @@
 //  Untitled.swift
 //  App
 //
-//  Created by Amina Nutfullina on 22.07.2025.
+//  Created by krnklvx on 24.07.2025.
 //
 
