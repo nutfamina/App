@@ -1,8 +1,6 @@
 
 //ЗАГЛУШКА
 
-
-
 import SwiftUI
 
 struct TipsView: View {

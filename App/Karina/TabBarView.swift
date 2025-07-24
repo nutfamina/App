@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct TabBarView: View {
+    @State private var recipes = RecipeData.recipes
+    @State private var favorites: [Recipe] = []
+
     var body: some View {
         TabView {
-            RecipeListView()
+            RecipeListView(recipes: $recipes, favorites: $favorites)
                 .tabItem {
                     Label("Меню", systemImage: "list.bullet")
                 }
 
-            FavoritesView()
+            FavoritesView(favorites: $favorites) //синхороизирует данные 
                 .tabItem {
                     Label("Избранное", systemImage: "heart.fill")
                 }
@@ -28,9 +31,4 @@ struct TabBarView: View {
         .accentColor(Color("GlamourPink"))
     }
 }
-
-#Preview {
-    TabBarView()
-}
-
 

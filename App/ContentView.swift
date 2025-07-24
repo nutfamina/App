@@ -2,6 +2,14 @@
 //  ContentView.swift
 //  App
 //
+//  Created by krnklvx on 23.07.2025.
+//
+
+
+//
+//  ContentView.swift
+//  App
+//
 //  Created by Amina Nutfullina on 22.07.2025.
 //
 
@@ -13,7 +21,7 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello!")
+            Text("Hello, Artur!")
         }
         .padding()
     }
