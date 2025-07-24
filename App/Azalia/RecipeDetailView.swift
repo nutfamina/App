@@ -10,6 +10,7 @@ import SwiftUI
 
 struct RecipeDetailView: View {
     let recipe: Recipe //отображаем 1 рецепт
+    @Binding var favorites: [Recipe]
     @State private var servings: Int = 1
     @State private var isFavorite: Bool = false
 
