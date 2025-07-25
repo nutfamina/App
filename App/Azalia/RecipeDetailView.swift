@@ -10,15 +10,33 @@ import SwiftUI
 
 struct RecipeDetailView: View {
     let recipe: Recipe //отображаем 1 рецепт
+    @Binding var favorites: [Recipe]
     @State private var servings: Int = 1
     @State private var isFavorite: Bool = false
+    
+    init(recipe: Recipe, favorites: Binding<[Recipe]>) {
+            self.recipe = recipe
+            self._favorites = favorites
+            self._isFavorite = State(initialValue: favorites.wrappedValue.contains { $0.id == recipe.id })
+        }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
 
             HStack { //кнопка избранное
                 Spacer()
-                Button(action: { isFavorite.toggle() }) { //при нажатии меняем цвет кнопки
+                Button(action: {
+                    isFavorite.toggle()
+                    if isFavorite {
+                        // Добавляем в избранное, если еще нет
+                        if !favorites.contains(where: { $0.id == recipe.id }) {
+                            favorites.append(recipe)
+                        }
+                    } else {
+                        // Удаляем из избранного
+                        favorites.removeAll { $0.id == recipe.id }
+                    }
+                }) {
                     Image(systemName: isFavorite ? "heart.fill" : "heart")
                         .font(.title2)
                         .foregroundColor(.red)
